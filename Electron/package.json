@@ -1,0 +1,61 @@
+{
+  "name": "instant-clipboard",
+  "version": "1.0.0",
+  "description": "Clipboard utility for Unity",
+  "main": "main.js",
+  "scripts": {
+    "start": "NODE_ENV=production electron .",
+    "dist": "electron-builder"
+  },
+  "repository": "https://github.com/saadnkhawaja/instant-clipboard-unity",
+  "keywords": [
+    "Electron",
+    "clipboard",
+    "Unity",
+    "productivity",
+    "utility"
+  ],
+  "author": "Saad Khawaja",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^31.2.1",
+    "electron-builder": "^23.0.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "fs-extra": "^11.2.0"
+  },
+  "build": {
+    "appId": "com.saadkhawaja.instantclipboard",
+    "mac": {
+      "icon": "build/icon.icns",
+      "category": "public.app-category.productivity"
+    },
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "linux": {
+      "icon": "build"
+    },
+    "directories": {
+      "buildResources": "build"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "include": "build/installer.nsh"
+    }
+  }
+}
